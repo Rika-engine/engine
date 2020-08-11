@@ -1,0 +1,3 @@
+﻿  Main.cpp
+C:\Users\moon1\Desktop\project\Project\Main.cpp(91,28): warning C4305: 'argomento': troncamento da 'double' a 'GLclampf'
+  Project.vcxproj -> C:\Users\moon1\Desktop\project\Project\x64\Debug\Project.exe
