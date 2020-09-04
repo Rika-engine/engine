@@ -22,6 +22,8 @@
   <ItemGroup>
     <None Include="Fragmentshader.glsl" />
     <None Include="Vertexshader.glsl" />
+    <None Include="lampfshader.glsl" />
+    <None Include="lampvshader.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="miscmethods.h">
@@ -36,9 +38,6 @@
     <ClInclude Include="objimporter.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="audio.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="objloader.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
@@ -46,6 +45,18 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="ddsimporter.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="libs.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

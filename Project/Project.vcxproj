@@ -97,15 +97,16 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\moon1\Desktop\ogl\Librerie Esterne\GLEW\lib\Release\x64;$(SolutionDir)/../Librerie Esterne/GLM/Include;$(SolutionDir)/../Librerie Esterne\GLM\Include\gtc;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLFW/Include;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLEW/Include;$(SolutionDir)/../Librerie Esterne/OpenAL_soft/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Libs\GLEW\lib\Release\x64;$(SolutionDir)/Libs/GLM/Include;$(SolutionDir)/Libs\GLM\Include\gtc;$(SolutionDir)/Libs/GLFW/Include;$(SolutionDir)/Libs\GLEW/Include;$(SolutionDir)/Libs/OpenAL_soft/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>OpenAL32.lib;opengl32.lib;glfw3.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\moon1\Desktop\ogl\Librerie Esterne\GLEW\lib\Release\x64;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLEW\lib\Release;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLFW/lib-vc2019;$(SolutionDir)/../Librerie Esterne/OpenAL_soft/libs/Win64;SolutionDir)/../Librerie Esterne/OpenAL_soft/libs/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)/Libs\GLEW\lib\Release\x64;$(SolutionDir)/Libs\GLEW\lib\Release;$(SolutionDir)/Libs/GLFW/lib-vc2019;$(SolutionDir)/Libs\OpenAL_soft/libs/Win64;$(SolutionDir)/Libs\OpenAL_soft/libs/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -130,9 +131,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\moon1\Desktop\ogl\Librerie Esterne\GLEW\lib\Release\x64;$(SolutionDir)/../Librerie Esterne/GLM/Include;$(SolutionDir)/../Librerie Esterne\GLM\Include\gtc;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLFW/Include;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLEW/Include;$(SolutionDir)/../Librerie Esterne/OpenAL_soft/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Libs\GLEW\lib\Release\x64;$(SolutionDir)/Libs/GLM/Include;$(SolutionDir)/Libs\GLM\Include\gtc;$(SolutionDir)/Libs/GLFW/Include;$(SolutionDir)/Libs\GLEW/Include;$(SolutionDir)/Libs/OpenAL_soft/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +142,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>OpenAL32.lib;opengl32.lib;glfw3.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\moon1\Desktop\ogl\Librerie Esterne\GLEW\lib\Release\x64;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLEW\lib\Release;C:\Users\moon1\Desktop\ogl\Librerie Esterne/GLFW/lib-vc2019;$(SolutionDir)/../Librerie Esterne/OpenAL_soft/libs/Win64;SolutionDir)/../Librerie Esterne/OpenAL_soft/libs/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)/Libs\GLEW\lib\Release\x64;$(SolutionDir)/Libs\GLEW\lib\Release;$(SolutionDir)/Libs/GLFW/lib-vc2019;$(SolutionDir)/Libs\OpenAL_soft/libs/Win64;$(SolutionDir)/Libs\OpenAL_soft/libs/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -148,18 +150,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Fragmentshader.glsl" />
+    <None Include="lampfshader.glsl" />
+    <None Include="lampvshader.glsl" />
     <None Include="Vertexshader.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="audio.h" />
     <ClInclude Include="ddsimporter.h" />
     <ClInclude Include="daeloader.h" />
+    <ClInclude Include="libs.h" />
     <ClInclude Include="material.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="miscmethods.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="objimporter.h" />
     <ClInclude Include="objloader.h" />
+    <ClInclude Include="structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
