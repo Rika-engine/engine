@@ -9,7 +9,7 @@
 #include  <glm.hpp>
 #include <gtc/type_ptr.hpp>
 
-
+#include <direct.h>
 
 
 GLuint bindshader(const char* vname, const char* fname) {
@@ -75,66 +75,80 @@ GLuint bindshader(const char* vname, const char* fname) {
 	glLinkProgram(program);
 	return program;
 }
+
+
+string  getpath() {
+	char C[256];
+	_getcwd(C, sizeof(C));
+	std::string path = C;
+	path = path.substr(0, path.find("Project"));
+	path.insert(path.find("\\", path.find("\\")), "\\");
+	short a = path.find("\\");
+	while (path.find("\\", a + 3) != -1) {
+		a = path.find("\\", a + 3); std::printf("\n %s path\n", path.c_str());
+		path.insert(path.find("\\", a), "\\");
+
+		std::printf("\n %d XD ", a);;
+	}
+
+	std::printf("\n %s path\n", path.c_str());
+	return path;
+}
 void loadtexture(const char* name,GLuint &textureid ) {
- 
- 
-	 
-	float anisot = 0;
+	string path = getpath()+"models\\"+name+"\\"+name+".dds";
  
 
+	float anisot = 0;
+ 
 	if(GL_EXT_texture_filter_anisotropic){
 		glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &anisot);
 	//	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, anisot);
 	}
-		
+	
+	
+	
 	 
-	std::string path = "C:\\Users\\Rika\\Desktop\\project\\models\\";
-	std::string	s = path + name + "\\" + name + "_spec" + ".dds";
+	
 
 
-
-
-	glGenTextures(1, &textureid); printf("ttttt%d  ", textureid);
+	glGenTextures(1, &textureid); std::printf("ttttt%d  ", textureid);
 	 
 	glUniform1i(0, textureid);
 	glBindTexture(GL_TEXTURE_2D, textureid);
 	glActiveTexture(0);
 
-	printf("aaaaa %d  ", textureid);
+	std::printf("aaaaa %d  ", textureid);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-
-	s = path + name + "\\" + name + ".dds";
-	loaddds(s.c_str());
-
-
-	
-	std::printf("\n %s TExture ", s.c_str());
-
-	GLuint  textureid2=0;
- 
-	glGenTextures(1, &textureid2); printf("ttttt%d  ", textureid2);
-	glBindTexture(GL_TEXTURE_2D, textureid);
-	glActiveTexture(0);
-	glUniform1i(1, textureid2);
-	printf("aaaaa %d  ", textureid2);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
- 
- 
-
-
 
 
 	 
- 	s = path + name + "\\" + name + "_spec" + ".dds";
-	std::printf("\n %s TExture ", s.c_str());
-	 loaddds(s.c_str());
+	loaddds(path.c_str());
+
+
+ 
+
+	GLuint  textureid2=0;
+ 
+	glGenTextures(1, &textureid2); std::printf("ttttt%d  ", textureid2);
+	glBindTexture(GL_TEXTURE_2D, textureid);
+	glActiveTexture(0);
+	glUniform1i(1, textureid2);
+	std::printf("aaaaa %d  ", textureid2);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+ 
+ 
+
+
+
+ 
+	 
+	// loaddds(s.c_str());
 	
 
 

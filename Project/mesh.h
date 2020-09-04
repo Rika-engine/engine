@@ -10,8 +10,9 @@ class Mesh {
 	glm::mat4 modelmatrix;
 public:
 	Mesh(const char* name,glm::vec3 position) {
-		std::string fullpath = "C:\\Users\\Rika\\Desktop\\project\\models\\"  ;
-			fullpath=fullpath+name+"\\"+name+".dae";
+		std::string fullpath = getpath()+"models\\" + name + "\\" + name + ".dae";;
+
+		 
 	
 	 	vertici = loaddae(fullpath.c_str(),  index);
  
