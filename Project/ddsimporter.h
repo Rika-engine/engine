@@ -11,7 +11,7 @@ void loaddds(const char *path) {
 			fread(header, 1, 124, f);
 
 
-			printf(" GUARDAMI %d", sizeof(header));
+		 
 			unsigned int height = *(unsigned int*)&header[8];//trasforma il byte in un puntatore unsigned int* e poi in un numero normale attraverso il * davanti
 			unsigned int width = *(unsigned int*)&header[12];
 			unsigned int linearsize = *(unsigned int*)&header[16];
@@ -25,7 +25,7 @@ void loaddds(const char *path) {
 
 			tip = (char*)&header[80];
 
-			printf(" GUARDAMI2 %s", tip);
+ 
 
 			if (strcmp(tip, "DXT1") == 0) {
 				formato = GL_COMPRESSED_RGBA_S3TC_DXT1_EXT;

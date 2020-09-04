@@ -30,7 +30,7 @@ vec3 ambient;
 void main(){//color=vec3( 1,1,1);
  // color = fragmentColor;
 
- ambient=vec3(0.5)*vec3(texture(textureid ,vec2(fragmentColor.x, fragmentColor.y)));;
+ ambient=vec3(0.5)*vec3(texture(textureid ,vec2(fragmentColor.x,1- fragmentColor.y)));;
 
 
  Light light;
@@ -41,17 +41,17 @@ void main(){//color=vec3( 1,1,1);
  color=vec4(normal.x,normal.y,normal.z,1);
 
  float diffuse=clamp(dot(normalize((normal)),light.direction),0,1); 
-vec3 diff=light.color*diffuse*light.power *vec3(texture(textureid ,vec2(fragmentColor.x, fragmentColor.y)));
+vec3 diff=light.color*diffuse*light.power  ;
 
 ; 
 
 
 color=vec4(1);
-color=texture(textureid,vec2(-fragmentColor.x,1-fragmentColor.y))  ;
+color=texture(textureid,vec2(fragmentColor.x,1-fragmentColor.y))  ;
 vec3 viewdir=normalize(viewpos-fragposition);
  
 vec3 reflectdir = reflect(-light.direction, normal);  
 float spec=pow(max(dot(viewdir,reflectdir),0.6),11);
-vec3 specc=spec*light.color *vec3(texture(textureid ,vec2(fragmentColor.x,1-fragmentColor.y)));color=color*vec4(ambient+diff+spec ,1);
+vec3 specc=spec*light.color *vec3(texture(textureid ,vec2(fragmentColor.x,1-fragmentColor.y)));color=color*vec4(ambient+diff  ,1);
  
 }
